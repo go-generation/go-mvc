@@ -10,6 +10,8 @@ import (
 	"github.com/aymerick/raymond"
 	gomvc "github.com/go-generation/go-mvc"
 	"github.com/spf13/cobra"
+	"golang.org/x/text/cases"
+	"golang.org/x/text/language"
 )
 
 func main() {
