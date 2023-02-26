@@ -1,7 +1,7 @@
 package gomvc
 
 import (
-	"io/ioutil"
+	"os"
 	"strings"
 
 	"github.com/getkin/kin-openapi/openapi2"
@@ -25,7 +25,7 @@ func LoadWithKin(specPath string) *openapi3.T {
 // V3 representation
 func LoadSwaggerV2AsV3(specPath string) *openapi3.T {
 	swaggerSpec := openapi2.T{}
-	c, err := ioutil.ReadFile(specPath)
+	c, err := os.ReadFile(specPath)
 	if err != nil {
 		panic(err)
 	}

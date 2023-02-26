@@ -10,6 +10,8 @@ import (
 	"github.com/aymerick/raymond"
 	gomvc "github.com/go-generation/go-mvc"
 	"github.com/spf13/cobra"
+	"golang.org/x/text/cases"
+	"golang.org/x/text/language"
 )
 
 func main() {
@@ -51,7 +53,7 @@ var command = &cobra.Command{
 
 		data := map[string]string{
 			"Name":      name,
-			"TitleName": strings.Title(name),
+			"TitleName": Title(name),
 		}
 		t, err := raymond.ParseFile("./cmd/dev/command.tpl")
 		if err != nil {
@@ -71,4 +73,9 @@ var command = &cobra.Command{
 // Command is the cli command that creates new cli commands
 func Command() *cobra.Command {
 	return command
+}
+
+func Title(s string) string {
+	caser := cases.Title(language.English)
+	return caser.String(s)
 }

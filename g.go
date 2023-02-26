@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"go/parser"
 	"go/token"
-	"io/ioutil"
 	"log"
 	"os"
 	"path/filepath"
@@ -56,7 +55,7 @@ func GenerateFromUserTemplate(name string, templateType string) error {
 	data := map[string]string{
 		"Package":   packageName,
 		"Name":      name,
-		"TitleName": strings.Title(name),
+		"TitleName": Title(name),
 	}
 
 	if dirExists(src) {
@@ -76,7 +75,7 @@ func GenerateFromUserTemplate(name string, templateType string) error {
 
 func handleDir(src string, data interface{}) error {
 	// create a file from all templates in the directory recursively
-	templates, err := ioutil.ReadDir(src)
+	templates, err := os.ReadDir(src)
 	if err != nil {
 		return err
 	}

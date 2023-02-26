@@ -2,8 +2,8 @@ package gomvc
 
 import (
 	"fmt"
-	"io/ioutil"
 	"log"
+	"os"
 	"path/filepath"
 	"strings"
 
@@ -30,7 +30,7 @@ type TestPath struct {
 func createControllerFromDefault(controllerData ControllerData, dest string) error {
 	var name string
 	gomodFile := filepath.Join(dest, "go.mod")
-	data, err := ioutil.ReadFile(gomodFile)
+	data, err := os.ReadFile(gomodFile)
 	if err != nil {
 		// we'll assume the file doesn't exist and guess that the directory is the module name
 		name = GetLastPathPart(dest)

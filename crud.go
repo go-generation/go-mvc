@@ -14,7 +14,7 @@ import (
 
 func NewCRUDActions(name string) []Action {
 	actions := []Action{}
-	title := strings.Title(name)
+	title := Title(name)
 	singular := inflection.Singular(title)
 	for _, action := range []Action{
 		{Resource: title, SingularResource: singular, Name: "Index", Method: http.MethodGet},
@@ -25,7 +25,7 @@ func NewCRUDActions(name string) []Action {
 		} else {
 			action.Path = "/" + strings.ToLower(name)
 		}
-		action.Handler = strings.Title(action.Name)
+		action.Handler = Title(action.Name)
 		actions = append(actions, action)
 	}
 
@@ -35,7 +35,7 @@ func NewCRUDActions(name string) []Action {
 		{Resource: title, SingularResource: singular, Name: "Delete", Method: http.MethodDelete},
 	} {
 		detailAction.Path = fmt.Sprintf("/%s/:id", strings.ToLower(name))
-		detailAction.Handler = strings.Title(detailAction.Name)
+		detailAction.Handler = Title(detailAction.Name)
 		actions = append(actions, detailAction)
 	}
 	return actions

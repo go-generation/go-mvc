@@ -4,7 +4,6 @@ import (
 	"bufio"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"log"
 	"os"
 
@@ -29,7 +28,7 @@ func CreateFileFromString(filepath string, contents string) error {
 }
 
 func createStringFromFile(filePath string) string {
-	content, err := ioutil.ReadFile(filePath)
+	content, err := os.ReadFile(filePath)
 	if err != nil {
 		log.Fatal(err)
 	}
