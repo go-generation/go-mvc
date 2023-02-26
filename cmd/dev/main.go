@@ -51,7 +51,7 @@ var command = &cobra.Command{
 
 		data := map[string]string{
 			"Name":      name,
-			"TitleName": strings.Title(name),
+			"TitleName": Title(name),
 		}
 		t, err := raymond.ParseFile("./cmd/dev/command.tpl")
 		if err != nil {

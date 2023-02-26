@@ -106,7 +106,7 @@ func NewControllerStatement(resource string) *dst.AssignStmt {
 		},
 		Rhs: []dst.Expr{
 			&dst.Ident{
-				Name: fmt.Sprintf("%sController{db: db, log: log}", strings.Title(resource)),
+				Name: fmt.Sprintf("%sController{db: db, log: log}", Title(resource)),
 			},
 		},
 	}

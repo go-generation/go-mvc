@@ -9,7 +9,6 @@ import (
 	"os/exec"
 	"path"
 	"path/filepath"
-	"strings"
 
 	rice "github.com/GeertJohan/go.rice"
 	"github.com/GeertJohan/go.rice/embedded"
@@ -53,7 +52,7 @@ var application = &cobra.Command{
 		} {
 			data := map[string]string{
 				"Name":      appName,
-				"TitleName": strings.Title(appName),
+				"TitleName": Title(appName),
 			}
 			destPath := filepath.Join(destinationDir, file.Name)
 			if err := createFileFromTemplates(file.Template, data, destPath); err != nil {

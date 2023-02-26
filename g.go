@@ -56,7 +56,7 @@ func GenerateFromUserTemplate(name string, templateType string) error {
 	data := map[string]string{
 		"Package":   packageName,
 		"Name":      name,
-		"TitleName": strings.Title(name),
+		"TitleName": Title(name),
 	}
 
 	if dirExists(src) {

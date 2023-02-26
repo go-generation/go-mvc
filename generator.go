@@ -51,7 +51,7 @@ func (oag *Generator) CreateControllerFiles(path string, pathItem *openapi3.Path
 			log.Printf("Missing operation ID. Generating default name for handler/operation function in controller %s.\n", name)
 			operationName = handler
 		} else {
-			operationName = strings.Title(op.OperationID)
+			operationName = Title(op.OperationID)
 		}
 
 		// responses might not be unique across controller actions
