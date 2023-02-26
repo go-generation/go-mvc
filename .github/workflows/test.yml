@@ -48,5 +48,8 @@ jobs:
       run: |
          cp .github/models.go.test ./test/models/model.go
 
+    - name: Tidy
+      run: cd ./test && go mod tidy
+
     - name: Build generated application
-      run: cd ./test && go build -mod=mod ./...
+      run: go build -mod=mod ./...
