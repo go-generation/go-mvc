@@ -72,3 +72,8 @@ var command = &cobra.Command{
 func Command() *cobra.Command {
 	return command
 }
+
+func Title(s string) string {
+	caser := cases.Title(language.English)
+	return caser.String(s)
+}
