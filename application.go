@@ -3,7 +3,7 @@ package gomvc
 import (
 	"errors"
 	"go/build"
-	"io/ioutil"
+	"io"
 	"log"
 	"os"
 	"os/exec"
@@ -143,7 +143,7 @@ func runCommand(command *exec.Cmd) {
 	if err := command.Start(); err != nil {
 		log.Fatal(err)
 	}
-	slurp, err := ioutil.ReadAll(stderr)
+	slurp, err := io.ReadAll(stderr)
 	if err != nil {
 		log.Fatal(err)
 	}

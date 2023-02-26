@@ -1,8 +1,8 @@
 package gomvc
 
 import (
-	"io/ioutil"
 	"log"
+	"os"
 
 	yaml "github.com/ghodss/yaml"
 )
@@ -20,7 +20,7 @@ func NewGoMVCConfig(configDir string) GoMVCConfig {
 		log.Println("no config provided, using defaults")
 		return config
 	}
-	c, err := ioutil.ReadFile(configDir)
+	c, err := os.ReadFile(configDir)
 	if err != nil {
 		log.Printf("error reading config: %v", err)
 		return config
