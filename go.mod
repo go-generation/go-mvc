@@ -9,7 +9,7 @@ require (
 	github.com/dave/dst v0.27.2
 	github.com/getkin/kin-openapi v0.61.0
 	github.com/ghodss/yaml v1.0.0
-	github.com/iancoleman/strcase v0.2.0
+	github.com/iancoleman/strcase v0.3.0
 	github.com/jinzhu/inflection v1.0.0
 	github.com/pkg/errors v0.9.1
 	github.com/spf13/cobra v1.1.3
